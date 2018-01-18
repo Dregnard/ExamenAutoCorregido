@@ -1,0 +1,136 @@
+{
+    "questions": {
+        "question": [
+            {
+                "-id": "1",
+                "type": "radio",
+                "title": "1. ¿En qué año gano España su primer Mundial de Futbol?",
+                "option": [
+                    "1985",
+                    "1927",
+                    "2010",
+                    "Ninguna de las anteriores "
+                ],
+                "answer": "2010"
+            },
+            {
+                "-id": "2",
+                "type": "text",
+                "title": {
+                    "#text": "2. Si tu conduces un autobus con 40 pasajeros y en la siguiente parada se bajan 13 pasajeros, ¿Quien conduce el autobus?"
+                },
+                "answer": "Yo"
+            },
+            {
+                "-id": "3",
+                "type": "checkbox",
+                "title": {
+                    "#text": "3. Doscientos patos metidos en un cajón,¿cuantas patas y picos son?"
+                },
+                "option": [
+                    "2 picos y 4 patas",
+                    "200 picos y 400 patas",
+                    "Patata",
+                    "Ninguna de las anteriores"
+                ],
+                "answer": "2 picos y 4 patas"
+            },
+            {
+                "-id": "4",
+                "type": "select",
+                "title": {
+                    "#text": "4. ¿Que habilidad utiliza Naruto?"
+                },
+                "option": [
+                    "Rasengan",
+                    "Raikiri",
+                    "Chidori",
+                    "Pistola Agua"
+                ],
+                "answer": "Rasengan"
+            },
+            {
+                "-id": "5",
+                "type": "datalist",
+                "title": {
+                    "#text": "5. ¿Quien de los siguentes jugadores juega o ha jugado en el Real Madrid?"
+                },
+                "option": [
+                    "Zidane",
+                    "Michael Jordan",
+                    "Godin",
+                    "Lewandowski",
+                    "Pau Gasol"
+                ],
+                "answer": "Zidane"
+            },
+            {
+                "-id": "6",
+                "type": "radio",
+                "title": {
+                    "#text": "6. Selecciona la palabra correcta:"
+                },
+                "option": [
+                    "Havía",
+                    "Abía",
+                    "Había",
+                    "Avía"
+                ],
+                "answer": "Había"
+            },
+            {
+                "-id": "7",
+                "type": "text",
+                "title": {
+                    "#text": "7. ¿En qué mes una niña habladora habla menos?"
+                },
+                "answer": "Febrero"
+            },
+            {
+                "-id": "8",
+                "type": "checkbox",
+                "title": {
+                    "#text": "8. ¿Cuántos meses tienen 28 dias ?:"
+                },
+                "option": [
+                    "Enero, diciembre, agosto, junio.",
+                    "Febrero, noviembre, octubre, julio.",
+                    "Abril, marzo, mayo, septiembre."
+                ],
+                "answer": [
+                    "Enero, diciembre, agosto, junio.",
+                    "Febrero, noviembre, octubre, julio.",
+                    "Abril, marzo, mayo, septiembre."
+                ]
+            },
+            {
+                "-id": "9",
+                "type": "select",
+                "title": {
+                    "#text": "9. Según la ley de Newton, la fuerza es proporcional a:"
+                },
+                "option": [
+                    "El tiempo",
+                    "La velocidad",
+                    "La aceleración",
+                    "La posición"
+                ],
+                "answer": "La aceleración"
+            },
+            {
+                "-id": "10",
+                "type": "datalist",
+                "title": {
+                    "#text": "10. ¿Qué elementos forman el agua?"
+                },
+                "option": [
+                    "O y H",
+                    "Tomates",
+                    "Carbono y hidrógeno",
+                    "N, O y C"
+                ],
+                "answer": "O y H"
+            }
+        ]
+    }
+}
