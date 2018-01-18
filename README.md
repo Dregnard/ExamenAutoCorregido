@@ -1,8 +1,8 @@
 # Examen-HTML
-Enlace RawGit: https://rawgit.com/ToniMeco/Examen-HTML/master/index.html
-Examen autocorregido html con xml y js.
+Enlace RawGit: https://rawgit.com/Dregnard/ExamenAutoCorregido/master/Examen-HTML/index.html
+Examen autocorregido html con json, js y servlets.
 
-Consiste en un examen con corrección y con preguntas desde un documento xml usando js.
+Consiste en un examen con corrección y con preguntas desde un documento json usando js.
 
 Hay 5 tipos de elementos de formulario que completan un test de 10 preguntas: SELECT, RADIO, CHECKBOX, TEXT, DATALIST.
 
