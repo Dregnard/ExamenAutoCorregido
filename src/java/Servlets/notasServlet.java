@@ -91,7 +91,7 @@ public class notasServlet extends HttpServlet {
             //Eliminar si existe
             List<Document> resultados = database.getCollection("Notas").find().into(new ArrayList<>());
             for (Document r : resultados) {
-                if (r.getString("DNI").equals(DNI) && r.getString("tipoExamen").equals(tipoExamen)) {
+                if (r.getString("DNI").equals(DNI) && r.getString("modeloE").equals(tipoExamen)) {
                     collectionNotas.deleteOne(r);
                 }
             }
@@ -99,7 +99,7 @@ public class notasServlet extends HttpServlet {
             //Insert document
             Document notaDoc = new Document()
                     .append("DNI", DNI)
-                    .append("tipoExamen", tipoExamen)
+                    .append("modeloE", tipoExamen)
                     .append("nota", nota);
 
             collectionNotas.insertOne(notaDoc);
