@@ -1,0 +1,118 @@
+{
+    "questions": {
+        "question": [
+            {
+                "id": "1",
+                "type": "radio",
+                "title": "1. ¿En qué año murió Jissus?",
+                "option": [
+                    "Ninguna de las anteriores ",
+                    "1933",
+                    "210",
+                    "1"
+                ],
+                "answer": "Ninguna de las anteriores "
+            },
+            {
+                "id": "2",
+                "type": "text",
+                "title": "2. ¿Cuánto son 10 menos 10",
+                "answer": "0"
+            },
+            {
+                "id": "3",
+                "type": "checkbox",
+                "title": "3. ¿200/100?",
+                "option": [
+                    "2",
+                    "200",
+                    "0",
+                    "Ninguna de las anteriores"
+                ],
+                "answer": "2 picos y 4 patas"
+            },
+            {
+                "id": "4",
+                "type": "select",
+                "title": "4. ¿Que habilidad no utiliza Pikachu?",
+                "option": [
+                    "Surf",
+                    "Rayo",
+                    "Cola Férrea",
+                    "Trueno"
+                ],
+                "answer": "Surf"
+            },
+            {
+                "id": "5",
+                "type": "datalist",
+                "title": "5. ¿Quien de los siguentes jugadores juega o ha jugado en el Mallorca?",
+                "option": [
+                    "Etoo",
+                    "Jordan",
+                    "Godin",
+                    "Lewandowski",
+                    "Pere Cantó"
+                ],
+                "answer": "Etoo"
+            },
+            {
+                "id": "6",
+                "type": "radio",
+                "title": "6. Selecciona la palabra alemana:",
+                "option": [
+                    "Hello",
+                    "Hola",
+                    "Hallo",
+                    "Halla"
+                ],
+                "answer": "Hallo"
+            },
+            {
+                "id": "7",
+                "type": "text",
+                "title": "7. ¿En qué mes Jissus creó java?",
+                "answer": "Marzo"
+            },
+            {
+                "id": "8",
+                "type": "checkbox",
+                "title": "8. ¿Que meses son primavera ?:",
+                "option": [
+                    "Marzo, abril, mayo, junio.",
+                    "Junio, mayo, abril, marzo.",
+                    "Mayo, marzo, junio, abril."
+                ],
+                "answer": [
+                    "Marzo, abril, mayo, junio.",
+                    "Junio, mayo, abril, marzo.",
+                    "Mayo, marzo, junio, abril."
+                ]
+            },
+            {
+                "id": "9",
+                "type": "select",
+                "title": "9. Según la ley de Newton, la fuerza es inversamente proporcional a:",
+                "option": [
+                    "La tierra",
+                    "La massa",
+                    "Al cuadrado de la distancia que los separa",
+                    "La luz"
+                ],
+                "answer": "Al cuadrado de la distancia que los separa"
+            },
+            {
+                "id": "10",
+                "type": "datalist",
+                "title": "10. ¿Qué es la luz?",
+                "option": [
+                    "Materia y energía",
+                    "Materia",
+                    "Energía",
+                    "Carbono"
+                ],
+                "answer": "Materia y energía"
+            }
+        ]
+    }
+}

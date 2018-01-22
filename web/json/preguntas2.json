@@ -1,0 +1,118 @@
+{
+    "questions": {
+        "question": [
+            {
+                "id": "1",
+                "type": "radio",
+                "title": "1. ¿En qué año empezó la guerra civil española?",
+                "option": [
+                    "1985",
+                    "1927",
+                    "1936",
+                    "Ninguna de las anteriores "
+                ],
+                "answer": "1936"
+            },
+            {
+                "id": "2",
+                "type": "text",
+                "title": "2. ¿Cuánto son 2 + 2?",
+                "answer": "4"
+            },
+            {
+                "id": "3",
+                "type": "checkbox",
+                "title": "3. ¿400/100?",
+                "option": [
+                    "4",
+                    "2",
+                    "0",
+                    "Ninguna de las anteriores"
+                ],
+                "answer": "4"
+            },
+            {
+                "id": "4",
+                "type": "select",
+                "title": "4. ¿Que habilidad utiliza Picacku?",
+                "option": [
+                    "Impactrueno",
+                    "Surf",
+                    "Ratata",
+                    "Rasengan"
+                ],
+                "answer": "Impactrueno"
+            },
+            {
+                "id": "5",
+                "type": "datalist",
+                "title": "5. ¿Quien de los siguentes jugadores juega o ha jugado en el Barsa?",
+                "option": [
+                    "Etoo",
+                    "Fabian",
+                    "Casillas",
+                    "Raul",
+                    "Helguera"
+                ],
+                "answer": "Etoo"
+            },
+            {
+                "id": "6",
+                "type": "radio",
+                "title": "6. Selecciona la palabra incorrecta:",
+                "option": [
+                    "Sabía",
+                    "Había",
+                    "Savía",
+                    "Haber"
+                ],
+                "answer": "Savía"
+            },
+            {
+                "id": "7",
+                "type": "text",
+                "title": "7. ¿En qué año acabo la primera guerra Mundial?",
+                "answer": "1918"
+            },
+            {
+                "id": "8",
+                "type": "checkbox",
+                "title": "8. ¿Cuántos meses tienen 25 dias ?:",
+                "option": [
+                    "Enero, diciembre, agosto, junio.",
+                    "Febrero, noviembre, octubre, julio.",
+                    "Abril, marzo, mayo, septiembre."
+                ],
+                "answer": [
+                    "Enero, diciembre, agosto, junio.",
+                    "Febrero, noviembre, octubre, julio.",
+                    "Abril, marzo, mayo, septiembre."
+                ]
+            },
+            {
+                "id": "9",
+                "type": "select",
+                "title": "9. ¿En que año nació Jissus?:",
+                "option": [
+                    "El tiempo",
+                    "1",
+                    "1996",
+                    "-7"
+                ],
+                "answer": "1996"
+            },
+            {
+                "id": "10",
+                "type": "datalist",
+                "title": "10. ¿Qué elementos forman el agua oxigenada?",
+                "option": [
+                    "O y H",
+                    "P y F",
+                    "Hidrógeno y carbono",
+                    "C, O y Fe"
+                ],
+                "answer": "O y H"
+            }
+        ]
+    }
+}
