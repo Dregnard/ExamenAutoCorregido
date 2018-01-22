@@ -16,7 +16,7 @@ var notaF = 0;
 //window.onload Temps
 window.onload = function () {
     var t;
-    var temp = new temps(180, 0);
+    var temp = new temps(720, 0);
     total = setInterval(function () {
         t = temp.tratar();
         var mm = temp.getMinutos();
