@@ -8,7 +8,32 @@
         <link rel="stylesheet" media="screen and (max-width: 960px)" href="css/m.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-        <script src="js/loginjs.js"></script>
+        <script>
+            function nif() {
+                var dni = $("#dni").val();
+                var numero
+                var letr
+                var letra
+                var expresion_regular_dni
+
+                expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+
+                if (expresion_regular_dni.test(dni) == true) {
+                    numero = dni.substr(0, dni.length - 1);
+                    letr = dni.substr(dni.length - 1, 1);
+                    numero = numero % 23;
+                    letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                    letra = letra.substring(numero, numero + 1);
+                    if (letra != letr.toUpperCase()) {
+                        alert('Dni erroneo, la letra del NIF no se corresponde');
+                    } else {
+                        alert('Dni correcto');
+                        location.href = "prueba1.html";
+                    }
+                } else {
+                    alert('Dni erroneo, formato no válido');
+                }
+            }</script>
     </head>
     <body>
         <div id="1">
@@ -22,10 +47,9 @@
                 <p>Tienes <b>3 minutos </b>para relizar la prueba, en caso de agotar el tiempo el examen acabará automáticamente y se hará la corrección.</p>
                 <p>Las respuestas incorrectas no penalizan, excepto las de <u>selección múltiple</u> que los <b>errores restan 1p.</b></p>
                 <form name="elDni">
-                    DNI <input id="dni" type="text" name="dni" placeholder="12345678Z"><br><br>
-                    Modelo Examen  <select id="modeloE" name="modeloE"><option>A</option><option>B</option><option>C</option></select>
+                    DNI <input id="dni" type="text" name="dni" placeholder="12345678Z">
                 </form>
-                <a href="prueba1.html"><b>Empezar</b></a>
+                <a onClick="return nif();"><b>Empezar</b></a>
             </div>
         </div>
     </body>
