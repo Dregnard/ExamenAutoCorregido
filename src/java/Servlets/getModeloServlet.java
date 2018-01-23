@@ -73,7 +73,7 @@ public class getModeloServlet extends HttpServlet {
             collEx.drop();
             collEx = database.getCollection("Examenes");
 
-            //collEx.insertOne(getModeloA());
+            collEx.insertOne(getModeloA());
             //collEx.insertOne(getModeloB());
             //collEx.insertOne(getModeloC());
             mongoClient.close();
@@ -83,4 +83,30 @@ public class getModeloServlet extends HttpServlet {
         }
 
     }
+
+    //ejemplo
+    private Document getModeloA() {
+        Document modeloA = new Document("Nombre", "Modelo A");
+
+        modeloA.put("0", P1MA());
+        return modeloA;
+    }
+
+    private Document P1MA() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "¿1+1?");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "la suma es 1")
+                .append("1", " es 2")
+                .append("2", " es 5")
+                .append("3", "es 8");
+        pregunta.put("respuesta", respuesta);
+        return pregunta;
+    }
+
 }
