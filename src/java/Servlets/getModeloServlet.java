@@ -7,7 +7,6 @@ package Servlets;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -16,7 +15,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +35,6 @@ public class getModeloServlet extends HttpServlet {
                 "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
         MongoClient mongoClient = new MongoClient(uri);
         //Create Database
-
         MongoDatabase database = mongoClient.getDatabase("Examen");
 
         //MongoCollection para meter todos los documentos
@@ -61,22 +58,30 @@ public class getModeloServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         try {
-            //Connect
             MongoClientURI uri = new MongoClientURI(
                     "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
-            MongoClient mongoClient = new MongoClient(uri);
-            //Create Database
-            MongoDatabase database = mongoClient.getDatabase("Examen");
+            MongoClient mongoo = new MongoClient(uri);
 
-            //Create collection
-            MongoCollection<Document> collEx = database.getCollection("Examenes");
-            collEx.drop();
-            collEx = database.getCollection("Examenes");
+            MongoDatabase db = mongoo.getDatabase("Examen");
+
+            MongoCollection<Document> collection = db.getCollection("Examenes");
+
+            Document pregunta = new Document("pregunta", "select-1")
+                    .append("tipo", "select")
+                    .append("titulo", "¿Cuántos centímetros tiene un metro?");
+
+            Document respuesta = new Document("h", 28)
+                    .append("0", 10)
+                    .append("1", 100)
+                    .append("2", 100);
+
+            pregunta.put("respuesta", respuesta);
+            collection.insertOne(pregunta);
 
             collEx.insertOne(getModeloA());
             //collEx.insertOne(getModeloB());
             //collEx.insertOne(getModeloC());
-            mongoClient.close();
+            mongoo.close();
 
         } catch (Exception e) {
 

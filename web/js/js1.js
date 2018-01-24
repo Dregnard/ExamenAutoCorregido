@@ -36,11 +36,13 @@ window.onload = function () {
     }, 10);
 
     leerXml();
-
+    cargarExamen();
 
     document.getElementById("corregir").onclick = function () {
         corregir();
     };
+
+
 
 };
 
@@ -55,6 +57,26 @@ function leerXml() {
     http.open("GET", "xml/preguntas.xml", true);
     http.send();
 }
+function cargarExamen() {
+    var emess = "Error desconocido";
+    var pregunta = $("a");
+
+    $.ajax({
+        type: "GET",
+        url: "getModeloServlet",
+        dataType: "json",
+        success: function (jsn) {
+          
+
+        },
+        error: function (e) {
+            $select.html('<option id="-1">none available</option>');
+            alert(e["responseJSON"]["error"]);
+        }
+    });
+
+}
+);
 
 //formulario
 function cargarDatos() {
