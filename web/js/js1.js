@@ -70,8 +70,7 @@ function cargarPreguntas() {
                         typeDatalist(type, i);
                         break;
                     case "radio":
-                        alert("abc");
-                        typeRadio(type, i);
+                        typeRadio2(tipo, i);
                         break;
                     case "select":
                         typeSelect(type, i);
@@ -94,7 +93,14 @@ function cargarPreguntas() {
 
 }
 
-
+function typeRadio2(preg, i){
+    var $div = $("<div />").add("pregunta");
+    $div.append("Pregunta "+ i++ +": "+ preg.titulo);
+    $.each(preg.respuesta, function (i, tipo){
+        $div.append($("<br><input type='radio' name='" + "aqui titulo" + "'required> "+tipo+"<br>"));
+    });
+    $("#a").append($div);
+}
 
 function leerXml() {
     http = new XMLHttpRequest();
