@@ -35,9 +35,7 @@ window.onload = function () {
         }
     }, 10);
 
-    leerXml();
-    cargarExamen();
-
+//    leerXml();
     document.getElementById("corregir").onclick = function () {
         corregir();
     };
@@ -45,6 +43,58 @@ window.onload = function () {
 
 
 };
+$(document).ready(function () {
+    cargarPreguntas();
+});
+
+function cargarPreguntas() {
+    var emess = "Error desconocido";
+
+    var dni = sessionStorage.getItem("_dni");
+    var modelo = sessionStorage.getItem("_modelo");
+
+    $.ajax({
+        type: "POST",
+        url: "getExamenServlet",
+        dataType: "json",
+        data: {modelo: modelo},
+        success: function (jsn) {
+            $.each(jsn[0], function (i, tipo) {
+
+                var type = tipo.tipo;
+                switch (type) {
+                    case "checkbox":
+                        typeCheckbox(type, i);
+                        break;
+                    case "datalist":
+                        typeDatalist(type, i);
+                        break;
+                    case "radio":
+                        alert("abc");
+                        typeRadio(type, i);
+                        break;
+                    case "select":
+                        typeSelect(type, i);
+                        break;
+                    case "text":
+                        typeText(type, i);
+                        break;
+                }
+
+            });
+
+
+        },
+        error: function (e) {
+            alert("Error");
+
+            alert(e["responseJSON"]["error"]);
+        }
+    });
+
+}
+
+
 
 function leerXml() {
     http = new XMLHttpRequest();

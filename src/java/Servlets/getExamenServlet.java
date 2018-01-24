@@ -7,6 +7,7 @@ package Servlets;
  */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -28,19 +29,13 @@ import org.bson.Document;
  */
 public class getExamenServlet extends HttpServlet {
 
-   
-
-    
-   
-
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Connect
 
         MongoClientURI uri = new MongoClientURI(
-                "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
+                "mongodb+srv://fabianyjoan:redbull@cluster0-nua52.mongodb.net/test");
         MongoClient mongoClient = new MongoClient(uri);
         //Create Database
         MongoDatabase database = mongoClient.getDatabase("Examen");
@@ -49,20 +44,20 @@ public class getExamenServlet extends HttpServlet {
         List<Document> examenes = database.getCollection("Examenes").find().into(new ArrayList<>());
         List<Document> examenD = new ArrayList<>();
         for (Document examen : examenes) {
-            if (examen.getString("Modelo").equals(request.getParameter("modeloE"))) {
+            if (examen.getString("Nombre").equals(request.getParameter("modelo"))) {
                 examenD.add(examen);
             }
         }
         mongoClient.close();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(examenD);
+        Gson gson = new Gson();
+        String json = gson.toJson(examenD, new TypeToken<List<Document>>() {
+        }.getType());
         response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) {
             out.println(json);
         }
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Short description";
