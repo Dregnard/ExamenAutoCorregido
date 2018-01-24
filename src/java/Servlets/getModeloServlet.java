@@ -7,8 +7,10 @@ package Servlets;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.io.IOException;
@@ -30,28 +32,25 @@ public class getModeloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Connect
-        MongoClientURI uri = new MongoClientURI(
-                "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
-        MongoClient mongoClient = new MongoClient(uri);
-        //Create Database
-        MongoDatabase database = mongoClient.getDatabase("Examen");
-
-        //MongoCollection para meter todos los documentos
-        MongoCollection<Document> ex = database.getCollection("Examenes");
-
-        List<Document> examenes = database.getCollection("Examenes").find().into(new ArrayList<>());
-        List<String> namesExamenes = new ArrayList<>();
-        for (Document examen : examenes) {
-            namesExamenes.add(examen.getString("Modelo"));
-        }
-        mongoClient.close();
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(namesExamenes);
-        response.setContentType("application/json");
-        try (PrintWriter out = response.getWriter()) {
-            out.println(json);
+        try {
+            //Connect
+            MongoClientURI uri = new MongoClientURI("mongodb+srv://fabianyjoan:redbull@cluster0-nua52.mongodb.net/test");
+            MongoClient mongoClient = new MongoClient(uri);
+            //Create Database
+            MongoDatabase database = mongoClient.getDatabase("Examen");
+            List<Document> examenes = database.getCollection("Examenes").find().into(new ArrayList<>());
+            List<String> namesExamenes = new ArrayList<>();
+            for (Document examen : examenes) {
+                namesExamenes.add(examen.getString("Nombre"));
+            }
+            Gson gson = new Gson();
+            String json = gson.toJson(namesExamenes, new TypeToken<List<String>>(){}.getType());
+            response.setContentType("application/json");
+            try (PrintWriter out = response.getWriter()) {
+                out.println(json);
+            }
+        } catch (Exception e) {
+            System.out.println("Error todo guapo");
         }
     }
 
@@ -59,32 +58,22 @@ public class getModeloServlet extends HttpServlet {
     public void init() throws ServletException {
         try {
             MongoClientURI uri = new MongoClientURI(
-                    "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
+                    "mongodb+srv://fabianyjoan:redbull@cluster0-nua52.mongodb.net/test");
             MongoClient mongoo = new MongoClient(uri);
 
             MongoDatabase db = mongoo.getDatabase("Examen");
 
             MongoCollection<Document> collection = db.getCollection("Examenes");
 
-            Document pregunta = new Document("pregunta", "select-1")
-                    .append("tipo", "select")
-                    .append("titulo", "¿Cuántos centímetros tiene un metro?");
+            collection.drop();
 
-            Document respuesta = new Document("h", 28)
-                    .append("0", 10)
-                    .append("1", 100)
-                    .append("2", 100);
-
-            pregunta.put("respuesta", respuesta);
-            collection.insertOne(pregunta);
-
-            collEx.insertOne(getModeloA());
-            //collEx.insertOne(getModeloB());
-            //collEx.insertOne(getModeloC());
+            collection.insertOne(getModeloA());
+            collection.insertOne(getModeloB());
+            collection.insertOne(getModeloC());
             mongoo.close();
 
         } catch (Exception e) {
-
+            System.out.println(e.toString());
         }
 
     }
@@ -95,6 +84,20 @@ public class getModeloServlet extends HttpServlet {
 
         modeloA.put("0", P1MA());
         return modeloA;
+    }
+
+    private Document getModeloB() {
+        Document modeloB = new Document("Nombre", "Modelo B");
+
+        modeloB.put("0", P1MB());
+        return modeloB;
+    }
+
+    private Document getModeloC() {
+        Document modeloC = new Document("Nombre", "Modelo C");
+
+        modeloC.put("0", P1MC());
+        return modeloC;
     }
 
     private Document P1MA() {
@@ -111,7 +114,66 @@ public class getModeloServlet extends HttpServlet {
                 .append("2", " es 5")
                 .append("3", "es 8");
         pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P1MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "¿Capital de Bielorrusia?");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Dublin")
+                .append("1", "Minsk")
+                .append("2", "Paris")
+                .append("3", "Moscu");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P1MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "¿5*20?");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "102")
+                .append("1", "50")
+                .append("2", "100")
+                .append("3", "30");
+        pregunta.put("respuesta", respuesta);
+
         return pregunta;
     }
 
 }
+
+//FindIterable<Document> list = ex.find();
+//            List<Document> namesExamenes = new ArrayList<>();
+//            for (Document d : list) {
+//
+//                d.getString("Nombre");
+//                System.out.println(d.getString("Nombre"));
+//            }
+//
+//       List<Document> examenes = database.getCollection("Examenes").find().into(new ArrayList<>());
+//        List<String> namesExamenes = new ArrayList<>();
+//        for (Document examen : examenes) {
+//            namesExamenes.add(examen.getString("Nombre"));
+//        }
+//        mongoClient.close();
+//
+//        Gson gson = new Gson();
+//        String json = gson.toJson(namesExamenes);
+//        response.setContentType("application/json");
+//        try (PrintWriter out = response.getWriter()) {
+//            out.println(json);
+//        }

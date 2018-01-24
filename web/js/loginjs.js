@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 
+window.onload = function () {
+
+    cargarExamen();
+
+
+};
+
 
 function nif(dni) {
     var numero
@@ -27,4 +34,27 @@ function nif(dni) {
     } else {
         alert('Dni erroneo, formato no válido');
     }
+}
+
+function cargarExamen() {
+    var emess = "Error desconocido";
+    
+
+    $.ajax({
+        type: "GET",
+        url: "getModeloServlet",
+        dataType: "json",
+
+        success: function (jsn) {
+            $.each(jsn, function (i, modelo) {
+                jQuery('<option/>', {html: modelo}).appendTo($('#modeloE'));
+            });
+
+        },
+        error: function (e) {
+            $('#modeloE').html('<option id="-1">none available</option>');
+            alert(e["responseJSON"]["error"]);
+        }
+    });
+
 }
