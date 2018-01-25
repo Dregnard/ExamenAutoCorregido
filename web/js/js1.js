@@ -95,7 +95,7 @@ function cargarPreguntas() {
 
 function typeRadio2(preg, i){
     var $div = $("<div />").add("pregunta");
-    $div.append("Pregunta: "+ preg.titulo);
+    $div.append("<br>Pregunta: "+ preg.titulo+"<br>");
     $.each(preg.respuesta, function (i, tipo){
         $div.append($("<br><input type='radio' name='" + preg.titulo + "'required> "+tipo+"<br>"));
     });
@@ -104,7 +104,7 @@ function typeRadio2(preg, i){
 
 function typeCheckbox2(preg, i){
     var $div = $("<div />").add("pregunta");
-    $div.append("Pregunta: "+ preg.titulo);
+    $div.append("<br>Pregunta: "+ preg.titulo+"<br>");
     $.each(preg.respuesta, function (i, tipo){
         $div.append($("<br><input type='checkbox' name='" + preg.titulo + "'>"+tipo+"<br>"));
     });
@@ -113,7 +113,7 @@ function typeCheckbox2(preg, i){
 
 function typeSelect2(preg, i) {
     var $div = $("<div />").add("pregunta");
-    $div.append("Pregunta: "+ preg.titulo);
+    $div.append("<br>Pregunta: "+ preg.titulo+"<br>");
     var $select = $("<br><select class='selectN'"+i+"/><br>");
     $select.append($("<br><option>Selecciona</option><br>"));
     $.each(preg.respuesta, function (i, resp) {
@@ -125,7 +125,7 @@ function typeSelect2(preg, i) {
 
 function typeText2(preg, i) {
     var $div = $("<div />").add("pregunta");
-    $div.append("Pregunta: "+ preg.titulo);
+    $div.append("<br>Pregunta: "+ preg.titulo+"<br>");
     var $text = $("<br><input type='text' name='" + preg.titulo + "' required><br>");
     $div.append($text);
     $("#a").append($div);
@@ -133,7 +133,7 @@ function typeText2(preg, i) {
 
 function typeDatalist2(preg, i) {
     var $div = $("<div />").add("pregunta");
-    $div.append("Pregunta: "+ preg.titulo);
+    $div.append("<br>Pregunta: "+ preg.titulo+"<br>");
     var $sel = $("<select multiple required/>");
     $.each(preg.respuesta, function (i, resp) {
         $sel.append($("<option>" + resp + "</option>"));
