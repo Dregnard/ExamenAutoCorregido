@@ -3,9 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-var booleanDni = false;
-
 window.onload = function () {
 
     cargarExamen();
@@ -14,11 +11,9 @@ window.onload = function () {
         var modelo = $('#modeloE').val();
         var dni = $("#dni").val();
         nif(dni);
-        if (modelo != null) {
-            if (booleanDni === true) {
-                guardarLS(modelo, dni);
-                window.location = "prueba1.html";
-            }
+        if (modelo != null && nif(dni) == true) {
+            guardarLS(modelo, dni);
+            window.location = "prueba1.html";
         } else {
             alert("Espera a que cargue el modelo")
         }
@@ -43,21 +38,20 @@ function nif(dni) {
         letra = letra.substring(numero, numero + 1);
         if (letra != letr.toUpperCase()) {
             alert('Dni erroneo, la letra del NIF no se corresponde');
-            booleanDni = false;
+            return false;
         } else {
             alert('Dni correcto');
-            booleanDni = true;
+            return true;
         }
     } else {
         alert('Dni erroneo, formato no válido');
-        booleanDni = false;
+        return false;
     }
 }
 
 function cargarExamen() {
     var emess = "Error desconocido";
-
-
+    $("#carga").show();
     $.ajax({
         type: "GET",
         url: "getModeloServlet",
@@ -67,9 +61,10 @@ function cargarExamen() {
             $.each(jsn, function (i, modelo) {
                 jQuery('<option/>', {html: modelo}).appendTo($('#modeloE'));
             });
-
+            $("#carga").hide();
         },
         error: function (e) {
+            $("#carga").hide();
             $('#modeloE').html('<option id="-1">none available</option>');
             alert(e["responseJSON"]["error"]);
         }

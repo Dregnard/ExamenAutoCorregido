@@ -6,6 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" media="screen and (min-width: 961px)" href="css/d.css">
         <link rel="stylesheet" media="screen and (max-width: 960px)" href="css/m.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <script src="js/loginjs.js"></script>
@@ -22,11 +30,18 @@
                 <p>Tienes <b>3 minutos </b>para relizar la prueba, en caso de agotar el tiempo el examen acabará automáticamente y se hará la corrección.</p>
                 <p>Las respuestas incorrectas no penalizan, excepto las de <u>selección múltiple</u> que los <b>errores restan 1p.</b></p>
                 <form name="elDni">
+                    <div id="carga" >
+                        <img class="img-responsive" src="img/carga2.GIF" alt="cargando">
+                        <img class="img-responsive" src="img/carga.gif" alt="cargando">
+                    </div>
                     DNI <input id="dni" type="text" name="dni" placeholder="12345678Z"><br><br>
-                    Modelo Examen  <select id="modeloE" name="modeloE"></select><br><br>
-                      <input id="comenzar" type="button" value="Comenzar" name="comenzar">
+                    Modelo Examen  <select id="modeloE" name="modeloE"></select><br>
+
+                    <br>
+                    <input id="comenzar" type="button" value="Comenzar" name="comenzar">
                 </form>
             </div>
+
         </div>
     </body>
 </html>
