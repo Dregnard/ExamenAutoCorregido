@@ -14,10 +14,15 @@ window.onload = function () {
         var modelo = $('#modeloE').val();
         var dni = $("#dni").val();
         nif(dni);
-        if (booleanDni === true) {
-            guardarLS(modelo, dni);
-            window.location = "prueba1.html";
+        if (modelo != null) {
+            if (booleanDni === true) {
+                guardarLS(modelo, dni);
+                window.location = "prueba1.html";
+            }
+        } else {
+            alert("Espera a que cargue el modelo")
         }
+
     });
 
 };
