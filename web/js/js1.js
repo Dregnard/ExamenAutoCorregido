@@ -44,8 +44,13 @@ window.onload = function () {
 
 };
 $(document).ready(function () {
+    tituloModelo();
     cargarPreguntas();
 });
+
+function tituloModelo() {
+    $("#tituloEx").html(sessionStorage.getItem("_modelo").toString());
+}
 
 function cargarPreguntas() {
     var emess = "Error desconocido";
@@ -81,7 +86,6 @@ function cargarPreguntas() {
                 }
 
             });
-
 
         },
         error: function (e) {

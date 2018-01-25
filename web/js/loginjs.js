@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+var booleanDni = false;
+
 window.onload = function () {
 
     cargarExamen();
@@ -11,18 +13,14 @@ window.onload = function () {
     $("#comenzar").click(function () {
         var modelo = $('#modeloE').val();
         var dni = $("#dni").val();
-        guardarLS(modelo, dni);
-        window.location = "prueba1.html";
+        nif(dni);
+        if (booleanDni === true) {
+            guardarLS(modelo, dni);
+            window.location = "prueba1.html";
+        }
     });
 
-
-
-
-
 };
-
-
-
 
 function nif(dni) {
     var numero
@@ -40,11 +38,14 @@ function nif(dni) {
         letra = letra.substring(numero, numero + 1);
         if (letra != letr.toUpperCase()) {
             alert('Dni erroneo, la letra del NIF no se corresponde');
+            booleanDni = false;
         } else {
             alert('Dni correcto');
+            booleanDni = true;
         }
     } else {
         alert('Dni erroneo, formato no válido');
+        booleanDni = false;
     }
 }
 
