@@ -64,19 +64,19 @@ function cargarPreguntas() {
                 var type = tipo.tipo;
                 switch (type) {
                     case "checkbox":
-                        typeCheckbox(type, i);
+                        typeCheckbox2(tipo, i);
                         break;
                     case "datalist":
-                        typeDatalist(type, i);
+                        typeDatalist2(tipo, i);
                         break;
                     case "radio":
                         typeRadio2(tipo, i);
                         break;
                     case "select":
-                        typeSelect(type, i);
+                        typeSelect2(tipo, i);
                         break;
                     case "text":
-                        typeText(type, i);
+                        typeText2(tipo, i);
                         break;
                 }
 
@@ -95,10 +95,50 @@ function cargarPreguntas() {
 
 function typeRadio2(preg, i){
     var $div = $("<div />").add("pregunta");
-    $div.append("Pregunta "+ i++ +": "+ preg.titulo);
+    $div.append("Pregunta: "+ preg.titulo);
     $.each(preg.respuesta, function (i, tipo){
-        $div.append($("<br><input type='radio' name='" + "aqui titulo" + "'required> "+tipo+"<br>"));
+        $div.append($("<br><input type='radio' name='" + preg.titulo + "'required> "+tipo+"<br>"));
     });
+    $("#a").append($div);
+}
+
+function typeCheckbox2(preg, i){
+    var $div = $("<div />").add("pregunta");
+    $div.append("Pregunta: "+ preg.titulo);
+    $.each(preg.respuesta, function (i, tipo){
+        $div.append($("<br><input type='checkbox' name='" + preg.titulo + "'>"+tipo+"<br>"));
+    });
+    $("#a").append($div);
+}
+
+function typeSelect2(preg, i) {
+    var $div = $("<div />").add("pregunta");
+    $div.append("Pregunta: "+ preg.titulo);
+    var $select = $("<br><select class='selectN'"+i+"/><br>");
+    $select.append($("<br><option>Selecciona</option><br>"));
+    $.each(preg.respuesta, function (i, resp) {
+        $select.append($("<br><option>" + resp + "</option><br>"));
+    });
+    $div.append($select);
+    $("#a").append($div);
+}
+
+function typeText2(preg, i) {
+    var $div = $("<div />").add("pregunta");
+    $div.append("Pregunta: "+ preg.titulo);
+    var $text = $("<br><input type='text' name='" + preg.titulo + "' required><br>");
+    $div.append($text);
+    $("#a").append($div);
+}
+
+function typeDatalist2(preg, i) {
+    var $div = $("<div />").add("pregunta");
+    $div.append("Pregunta: "+ preg.titulo);
+    var $sel = $("<select multiple required/>");
+    $.each(preg.respuesta, function (i, resp) {
+        $sel.append($("<option>" + resp + "</option>"));
+    });
+    $div.append($sel);
     $("#a").append($div);
 }
 

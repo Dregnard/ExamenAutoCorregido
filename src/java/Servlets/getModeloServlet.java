@@ -84,15 +84,15 @@ public class getModeloServlet extends HttpServlet {
         Document modeloA = new Document("Nombre", "Modelo A");
 
         modeloA.put("0", P1MA());
-        modeloA.put("1", P1MA());
-        modeloA.put("2", P1MA());
-        modeloA.put("3", P1MA());
-        modeloA.put("4", P1MA());
-        modeloA.put("5", P1MA());
-        modeloA.put("6", P1MA());
-        modeloA.put("7", P1MA());
-        modeloA.put("8", P1MA());
-        modeloA.put("9", P1MA());
+        modeloA.put("1", P2MA());
+        modeloA.put("2", P3MA());
+        modeloA.put("3", P4MA());
+        modeloA.put("4", P5MA());
+        modeloA.put("5", P6MA());
+        modeloA.put("6", P7MA());
+        modeloA.put("7", P8MA());
+        modeloA.put("8", P9MA());
+        modeloA.put("9", P10MA());
 
         return modeloA;
     }
@@ -102,15 +102,15 @@ public class getModeloServlet extends HttpServlet {
 
         modeloB.put("0", P1MB());
 
-        modeloB.put("1", P1MB());
-        modeloB.put("2", P1MB());
-        modeloB.put("3", P1MB());
-        modeloB.put("4", P1MB());
-        modeloB.put("5", P1MB());
-        modeloB.put("6", P1MB());
-        modeloB.put("7", P1MB());
-        modeloB.put("8", P1MB());
-        modeloB.put("9", P1MB());
+        modeloB.put("1", P2MB());
+        modeloB.put("2", P3MB());
+        modeloB.put("3", P4MB());
+        modeloB.put("4", P5MB());
+        modeloB.put("5", P6MB());
+        modeloB.put("6", P7MB());
+        modeloB.put("7", P8MB());
+        modeloB.put("8", P9MB());
+        modeloB.put("9", P10MB());
 
         return modeloB;
     }
@@ -315,24 +315,7 @@ public class getModeloServlet extends HttpServlet {
 
         return pregunta;
     }
-
-    private Document P1MB() {
-        //add Pregunta
-        Document pregunta = new Document()
-                .append("tipo", "radio")
-                .append("titulo", "¿Capital de Bielorrusia?");
-        pregunta.put("correcta", 2);
-
-        //add Respuestas.
-        Document respuesta = new Document()
-                .append("0", "Dublin")
-                .append("1", "Minsk")
-                .append("2", "Paris")
-                .append("3", "Moscu");
-        pregunta.put("respuesta", respuesta);
-
-        return pregunta;
-    }
+ 
 
     private Document P1MC() {
         //add Pregunta
