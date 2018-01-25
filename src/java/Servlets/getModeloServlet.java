@@ -102,15 +102,15 @@ public class getModeloServlet extends HttpServlet {
 
         modeloB.put("0", P1MB());
 
-//        modeloB.put("1", P2MB());
-//        modeloB.put("2", P3MB());
-//        modeloB.put("3", P4MB());
-//        modeloB.put("4", P5MB());
-//        modeloB.put("5", P6MB());
-//        modeloB.put("6", P7MB());
-//        modeloB.put("7", P8MB());
-//        modeloB.put("8", P9MB());
-//        modeloB.put("9", P10MB());
+        modeloB.put("1", P2MB());
+        modeloB.put("2", P3MB());
+        modeloB.put("3", P4MB());
+        modeloB.put("4", P5MB());
+        modeloB.put("5", P6MB());
+        modeloB.put("6", P7MB());
+        modeloB.put("7", P8MB());
+        modeloB.put("8", P9MB());
+        modeloB.put("9", P10MB());
 
         return modeloB;
     }
@@ -119,15 +119,15 @@ public class getModeloServlet extends HttpServlet {
         Document modeloC = new Document("Nombre", "Modelo C");
 
         modeloC.put("0", P1MC());
-        modeloC.put("1", P1MC());
-        modeloC.put("2", P1MC());
-        modeloC.put("3", P1MC());
-        modeloC.put("4", P1MC());
-        modeloC.put("5", P1MC());
-        modeloC.put("6", P1MC());
-        modeloC.put("7", P1MC());
-        modeloC.put("8", P1MC());
-        modeloC.put("9", P1MC());
+        modeloC.put("1", P2MC());
+        modeloC.put("2", P3MC());
+        modeloC.put("3", P4MC());
+        modeloC.put("4", P5MC());
+        modeloC.put("5", P6MC());
+        modeloC.put("6", P7MC());
+        modeloC.put("7", P8MC());
+        modeloC.put("8", P9MC());
+        modeloC.put("9", P10MC());
 
         return modeloC;
     }
@@ -298,7 +298,173 @@ public class getModeloServlet extends HttpServlet {
         return pregunta;
     }
 
-    private Document P1MB() {
+        private Document P1MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "1. ¿En qué año empezó la guerra civil española?");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "1985")
+                .append("1", "1927")
+                .append("2", "1936")
+                .append("3", "Ninguna de las anteriores");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P2MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "text")
+                .append("titulo", "2. ¿Cuánto son 2 + 2?");
+        pregunta.put("correcta", "4");
+
+        return pregunta;
+    }
+
+    private Document P3MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "checkbox")
+                .append("titulo", "3. ¿400/100?");
+        pregunta.put("correcta", 0);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "4")
+                .append("1", "2")
+                .append("2", "0")
+                .append("3", "Ninguna de las anteriores");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P4MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "select")
+                .append("titulo", "4. ¿Que habilidad utiliza Picacku?");
+        pregunta.put("correcta", 0);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Impactrueno")
+                .append("1", "Surf")
+                .append("2", "Ratata")
+                .append("3", "Rasengan");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P5MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "datalist")
+                .append("titulo", "5. ¿Quien de los siguentes jugadores juega o ha jugado en el Barsa?");
+        pregunta.put("correcta", 0);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Etoo")
+                .append("1", "Fabian")
+                .append("2", "Casillas")
+                .append("3", "Raul")
+                .append("4", "Helguera");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P6MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "6. Selecciona la palabra incorrecta:");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Sabía")
+                .append("1", "Había")
+                .append("2", "Savía")
+                .append("3", "Haber");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P7MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "text")
+                .append("titulo", "7. ¿En qué año acabo la primera guerra Mundial?");
+        pregunta.put("correcta", "1918");
+
+        //add Respuestas.
+        return pregunta;
+    }
+
+    private Document P8MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "checkbox")
+                .append("titulo", "8. ¿Cuántos meses tienen 25 dias ?:");
+        pregunta.put("correcta", 0);
+        pregunta.put("correcta", 1);
+        pregunta.put("correcta", 2);
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Enero, diciembre, agosto, junio.")
+                .append("1", "Febrero, noviembre, octubre, julio.")
+                .append("2", "Abril, marzo, mayo, septiembre.");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P9MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "select")
+                .append("titulo", "9. ¿En que año nació Jissus?:");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "El tiempo")
+                .append("1", "1")
+                .append("2", "1996")
+                .append("3", "7");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P10MB() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "10. ¿Qué elementos forman el agua oxigenada?");
+        pregunta.put("correcta", 1);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "H y Fe")
+                .append("1", "O y H")
+                .append("2", "Hidrógeno y carbono")
+                .append("3", "C, O y Fe");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+        private Document P1MC() {
         //add Pregunta
         Document pregunta = new Document()
                 .append("tipo", "radio")
@@ -307,54 +473,161 @@ public class getModeloServlet extends HttpServlet {
 
         //add Respuestas.
         Document respuesta = new Document()
-                .append("0", "la suma es 1")
-                .append("1", " es 2")
-                .append("2", " es 5")
-                .append("3", "es 8");
+                .append("0", "Ninguna de las anteriores")
+                .append("1", "1933")
+                .append("2", "210")
+                .append("3", "1");
         pregunta.put("respuesta", respuesta);
 
         return pregunta;
     }
- 
 
-    private Document P1MC() {
+    private Document P2MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "text")
+                .append("titulo", "2. ¿Cuánto son 10 menos 10?");
+        pregunta.put("correcta", "0");
+
+        return pregunta;
+    }
+
+    private Document P3MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "checkbox")
+                .append("titulo", "3. ¿200/100?");
+        pregunta.put("correcta", 0);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "2")
+                .append("1", "200")
+                .append("2", "0")
+                .append("3", "Ninguna de las anteriores");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P4MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "select")
+                .append("titulo", "4. ¿Que habilidad no utiliza Pikachu?");
+        pregunta.put("correcta", 0);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Surf")
+                .append("1", "Rayo")
+                .append("2", "Cola Férrea")
+                .append("3", "Trueno");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P5MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "datalist")
+                .append("titulo", "5. ¿Quien de los siguentes jugadores juega o ha jugado en el Mallorca?");
+        pregunta.put("correcta", 0);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Etoo")
+                .append("1", "Jordan")
+                .append("2", "Godin")
+                .append("3", "Lewandowski")
+                .append("4", "Pere Cantó");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P6MC() {
         //add Pregunta
         Document pregunta = new Document()
                 .append("tipo", "radio")
-                .append("titulo", "¿5*20?");
+                .append("titulo", "6. Selecciona la palabra alemana:");
         pregunta.put("correcta", 2);
 
         //add Respuestas.
         Document respuesta = new Document()
-                .append("0", "102")
-                .append("1", "50")
-                .append("2", "100")
-                .append("3", "30");
+                .append("0", "Hello")
+                .append("1", "Hola")
+                .append("2", "Hallo")
+                .append("3", "Holla");
         pregunta.put("respuesta", respuesta);
 
         return pregunta;
     }
 
-}
+    private Document P7MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "text")
+                .append("titulo", "7. ¿En qué mes Jissus creó java?");
+        pregunta.put("correcta", "Marzo");
 
-//FindIterable<Document> list = ex.find();
-//            List<Document> namesExamenes = new ArrayList<>();
-//            for (Document d : list) {
-//
-//                d.getString("Nombre");
-//                System.out.println(d.getString("Nombre"));
-//            }
-//
-//       List<Document> examenes = database.getCollection("Examenes").find().into(new ArrayList<>());
-//        List<String> namesExamenes = new ArrayList<>();
-//        for (Document examen : examenes) {
-//            namesExamenes.add(examen.getString("Nombre"));
-//        }
-//        mongoClient.close();
-//
-//        Gson gson = new Gson();
-//        String json = gson.toJson(namesExamenes);
-//        response.setContentType("application/json");
-//        try (PrintWriter out = response.getWriter()) {
-//            out.println(json);
-//        }
+        //add Respuestas.
+        return pregunta;
+    }
+
+    private Document P8MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "checkbox")
+                .append("titulo", "8. ¿Que meses son primavera ?:");
+        pregunta.put("correcta", 0);
+        pregunta.put("correcta", 1);
+        pregunta.put("correcta", 2);
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Marzo, abril, mayo, junio.")
+                .append("1", "Julio, mayo, abril, marzo.")
+                .append("2", "Mayo, marzo, junio, abril.");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P9MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "select")
+                .append("titulo", "9. Según la ley de Newton, la fuerza es inversamente proporcional a:");
+        pregunta.put("correcta", 2);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "La tierra")
+                .append("1", "La masa")
+                .append("2", "Al cuadrado de la distancia que los separa")
+                .append("3", "La luz");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+
+    private Document P10MC() {
+        //add Pregunta
+        Document pregunta = new Document()
+                .append("tipo", "radio")
+                .append("titulo", "10. ¿Qué es la luz?");
+        pregunta.put("correcta", 1);
+
+        //add Respuestas.
+        Document respuesta = new Document()
+                .append("0", "Materia y energía")
+                .append("1", "Matería")
+                .append("2", "Energía")
+                .append("3", "Carbono");
+        pregunta.put("respuesta", respuesta);
+
+        return pregunta;
+    }
+    
+}
