@@ -37,7 +37,7 @@ public class notasServlet extends HttpServlet {
         try {
             //Connect
             MongoClientURI uri = new MongoClientURI(
-                    "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
+                    "mongodb+srv://fabianyjoan:redbull@cluster0-nua52.mongodb.net/test");
             MongoClient mongoClient = new MongoClient(uri);
             //Create Database
             MongoDatabase database = mongoClient.getDatabase("Examen");
@@ -91,14 +91,14 @@ public class notasServlet extends HttpServlet {
             //Eliminar si existe
             List<Document> resultados = database.getCollection("Notas").find().into(new ArrayList<>());
             for (Document r : resultados) {
-                if (r.getString("DNI").equals(DNI) && r.getString("modeloE").equals(tipoExamen)) {
+                if (r.getString("dni").equals(DNI) && r.getString("modeloE").equals(tipoExamen)) {
                     collectionNotas.deleteOne(r);
                 }
             }
 
             //Insert document
             Document notaDoc = new Document()
-                    .append("DNI", DNI)
+                    .append("dni", DNI)
                     .append("modeloE", tipoExamen)
                     .append("nota", nota);
 

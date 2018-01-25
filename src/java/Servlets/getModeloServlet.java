@@ -102,15 +102,15 @@ public class getModeloServlet extends HttpServlet {
 
         modeloB.put("0", P1MB());
 
-        modeloB.put("1", P2MB());
-        modeloB.put("2", P3MB());
-        modeloB.put("3", P4MB());
-        modeloB.put("4", P5MB());
-        modeloB.put("5", P6MB());
-        modeloB.put("6", P7MB());
-        modeloB.put("7", P8MB());
-        modeloB.put("8", P9MB());
-        modeloB.put("9", P10MB());
+//        modeloB.put("1", P2MB());
+//        modeloB.put("2", P3MB());
+//        modeloB.put("3", P4MB());
+//        modeloB.put("4", P5MB());
+//        modeloB.put("5", P6MB());
+//        modeloB.put("6", P7MB());
+//        modeloB.put("7", P8MB());
+//        modeloB.put("8", P9MB());
+//        modeloB.put("9", P10MB());
 
         return modeloB;
     }
