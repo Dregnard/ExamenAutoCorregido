@@ -10,10 +10,11 @@ window.onload = function () {
     $("#comenzar").click(function () {
         var modelo = $('#modeloE').val();
         var dni = $("#dni").val();
-        nif(dni);
-        if (modelo != null && nif(dni) == true) {
-            guardarLS(modelo, dni);
-            window.location = "prueba1.html";
+        if (modelo != null) {
+            if (nif(dni) == true) {
+                guardarLS(modelo, dni);
+                window.location = "prueba1.html";
+            }
         } else {
             alert("Espera a que cargue el modelo")
         }
@@ -21,7 +22,7 @@ window.onload = function () {
     });
 
 };
-
+//https://donnierock.com/2011/11/05/validar-un-dni-con-javascript/
 function nif(dni) {
     var numero
     var letr

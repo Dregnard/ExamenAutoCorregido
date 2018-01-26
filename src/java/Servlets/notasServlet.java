@@ -73,13 +73,13 @@ public class notasServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nota = request.getParameter("nota");
-        String DNI = request.getParameter("DNI");
+        String DNI = request.getParameter("dni");
         String tipoExamen = request.getParameter("modeloE");
 
         try {
             //Connect
             MongoClientURI uri = new MongoClientURI(
-                    "mongodb+srv://fabianyjoan:monster123@cluster0-nua52.mongodb.net/test");
+                    "mongodb+srv://fabianyjoan:redbull@cluster0-nua52.mongodb.net/test");
             MongoClient mongoClient = new MongoClient(uri);
             //Create Database
             MongoDatabase database = mongoClient.getDatabase("Examen");
